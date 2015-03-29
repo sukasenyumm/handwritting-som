@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tugas", "Tugas\Tugas\Tugas.csproj", "{E7F6C523-F4A9-4B87-976C-30F40ED11B53}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "TugasContent", "Tugas\TugasContent\TugasContent.contentproj", "{CDD7D983-7F56-47F9-AC2B-2865E8934E70}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E7F6C523-F4A9-4B87-976C-30F40ED11B53}.Debug|x86.ActiveCfg = Debug|x86
+		{E7F6C523-F4A9-4B87-976C-30F40ED11B53}.Debug|x86.Build.0 = Debug|x86
+		{E7F6C523-F4A9-4B87-976C-30F40ED11B53}.Release|x86.ActiveCfg = Release|x86
+		{E7F6C523-F4A9-4B87-976C-30F40ED11B53}.Release|x86.Build.0 = Release|x86
+		{CDD7D983-7F56-47F9-AC2B-2865E8934E70}.Debug|x86.ActiveCfg = Debug|x86
+		{CDD7D983-7F56-47F9-AC2B-2865E8934E70}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
