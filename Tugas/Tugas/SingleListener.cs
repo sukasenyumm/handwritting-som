@@ -28,6 +28,7 @@ namespace Tugas
         private long currentTime;
         private long previousTime;
         private long timeChange;
+        const int FramePause = 10000;
         public List<FingerPointStorage> fingerPoint = new List<FingerPointStorage>();
 
         public override void OnFrame(Controller cntrlr)
@@ -38,7 +39,7 @@ namespace Tugas
             currentTime = currentFrame.Timestamp;
             timeChange = currentTime - previousTime;
 
-            if (timeChange > 10000)
+            if (timeChange > FramePause)
             {
                 if (!currentFrame.Hands.IsEmpty)
                 {
@@ -51,28 +52,32 @@ namespace Tugas
                     {
                         // Get the velocity of the finger tip
                         var tipVelocity = (int)finger.TipVelocity.Magnitude;
-
+                        Hand hand = currentFrame.Hands.Frontmost;
                         // Use tipVelocity to reduce jitters when attempting to hold
                         // the cursor steady
-                        if (tipVelocity > 25)
+                        //if (tipVelocity > 25)
+                        if (tipVelocity > 1)
                         {
-                            var xScreenIntersect = screen.Intersect(finger, true).x;
-                            var yScreenIntersect = 1 - screen.Intersect(finger, true).y;
+                            float xScreenIntersect = (float)screen.Intersect(finger, true).x;
+                            float yScreenIntersect = (float)(1 - screen.Intersect(finger, true).y);
+                            float zScreenIntersect = hand.PalmPosition.z;
 
                             if (xScreenIntersect.ToString() != "NaN")
                             {
-                                var x = (int)(xScreenIntersect * screen.WidthPixels);
-                                var y = (int)(screen.HeightPixels - (yScreenIntersect * screen.HeightPixels));
+                                //var x = (int)(xScreenIntersect * screen.WidthPixels);
+                                //var y = (int)(screen.HeightPixels - (yScreenIntersect * screen.HeightPixels));
 
                                 if (fingerPoint.Count <= 0)
                                 {
-                                    fingerPoint.Add(new FingerPointStorage(xScreenIntersect, yScreenIntersect, 1));
+                                    fingerPoint.Add(new FingerPointStorage(xScreenIntersect, yScreenIntersect, zScreenIntersect, 1));
                                 }
                                 else
                                 {
                                     fingerPoint[0].g_X = xScreenIntersect;
                                     fingerPoint[0].g_Y = yScreenIntersect;
+                                    fingerPoint[0].g_Z = zScreenIntersect;
                                     fingerPoint[0].isActive = true;
+                                    //Console.WriteLine("leap x-axis: {0},y-axis: {1},z-axis: {2}", fingerPoint[0].g_X, fingerPoint[0].g_Y, fingerPoint[0].g_Z);
                                 }
                             }
                         }
