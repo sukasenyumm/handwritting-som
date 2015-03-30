@@ -324,7 +324,7 @@ namespace Tugas
         }
         private void DrawText()
         {
-            spriteBatch.DrawString(_defaultFont, "Handwritting Recognizer SOM", new Vector2(100, 20), Color.White);
+            spriteBatch.DrawString(_defaultFont, "'I' 'Love' 'U' Character Recognition", new Vector2(100, 20), Color.White);
             spriteBatch.DrawString(_defaultFont, "fly in and out your hand onto board with leap controller\nhttps://github.com/sukasenyumm/handwritting-som", new Vector2(100, 640), Color.White);
             spriteBatch.DrawString(_defaultFont, "@sukasenyumm", new Vector2(725, 665), Color.White);
         }
